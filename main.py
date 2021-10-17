@@ -1,46 +1,3 @@
-# MENU = {
-#     "espresso": {
-#         "ingredients": {
-#             "water": 50,
-#             "coffee": 18,
-#         },
-#         "cost": 1.5,
-#     },
-#     "latte": {
-#         "ingredients": {
-#             "water": 200,
-#             "milk": 150,
-#             "coffee": 24,
-#         },
-#         "cost": 2.5,
-#     },
-#     "cappuccino": {
-#         "ingredients": {
-#             "water": 250,
-#             "milk": 100,
-#             "coffee": 24,
-#         },
-#         "cost": 3.0,
-#     }
-# }
-#
-# MONETARY_VALUE = {
-#     'quarters': 0.25,
-#     'dimes': 0.10,
-#     'nickles': 0.05,
-#     'pennies': 0.01,
-# }
-#
-# resources = {
-#     "water": 300,
-#     "milk": 200,
-#     "coffee": 100,
-# }
-
-#  delete_me_to_seeTODO: 1. Print a report of all the coffee machine resources.
-#  delete_me_to_seeTODO: 2. Check that resources are sufficient to make drink order.
-
-
 MENU = {
     "espresso": {
         "ingredients": {
@@ -86,7 +43,6 @@ profit = 0
 
 
 def print_report():
-    # multi-line editing: ALT + SHIFT to write on multiple lines at once for that repeat functionality
     print('Water: {remaining_water_ml}ml'.format(remaining_water_ml=resources['water']))
     print(f"Milk: {resources['milk']}ml")
     print('Coffee: {remaining_coffee_g}g'.format(remaining_coffee_g=resources['coffee']))
@@ -94,22 +50,6 @@ def print_report():
 
 
 def are_resources_sufficient(user_choice):
-    # run code shortcut: CTRL + R
-    # if user_input in MENU:
-    #     if resources['water'] >= MENU[user_input]['ingredients']['water']:
-    #         # NOTE: decorative double-quotes are different to programming double-quotes - remember that ;)
-    #         if resources['milk'] >= MENU[user_input]['ingredients']['milk']:
-    #             if resources['coffee'] >= MENU[user_input]['ingredients']['coffee']:
-    #                 return True
-    #             else:
-    #                 print('Sorry there is not enough coffee.')
-    #         else:
-    #             print('Sorry there is not enough milk.')
-    #     else:
-    #         print('Sorry there is not enough water.')
-    #
-    #     return False
-
     if user_input in MENU:
         for ingredient in MENU[user_choice]['ingredients']:
             if resources[ingredient] < MENU[user_choice]['ingredients'][ingredient]:
@@ -124,9 +64,6 @@ def are_resources_sufficient(user_choice):
 
 def process_coins():
     print('Please insert coins.')
-
-    # NOTE: whenever you have return values in your functions, your functions should have
-    #       docstrings!
     quarters_inserted_value = int(input('How many quarters?: ')) * MONETARY_VALUE['quarters']
     dimes_inserted_value = int(input('How many dimes?: ')) * MONETARY_VALUE['dimes']
     nickles_inserted_value = int(input('How many nickles?: ')) * MONETARY_VALUE['nickles']
@@ -153,10 +90,6 @@ def was_transaction_successful():
 
 
 def make_coffee(user_choice):
-    # resources['water'] -= MENU[user_input]['ingredients']['water']
-    # resources['milk'] -= MENU[user_input]['ingredients']['milk']
-    # resources['coffee'] -= MENU[user_input]['ingredients']['coffee']
-
     for ingredient in MENU[user_choice]['ingredients']:
         resources[ingredient] -= MENU[user_input]['ingredients'][ingredient]
 
